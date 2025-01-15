@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="home">
+        <div class="intro">
+            <!-- Profile photo -->
+            <img src="{{ url_for('static', filename='images/Rasadari.jpg') }}" alt="Rasadari Ranasinghe" class="profile-photo">
+
+            <!-- Welcome message -->
+            <h1>Hello, I'm Rasadari Ranasinghe</h1>
+            <p>I am a data analyst with a passion for solving complex problems using data. I specialize in data extraction, data transformation, data visualization, statistical analysis, and data-driven storytelling. Welcome to my professional portfolio.</p>
+
+            <!-- Call to Action Button -->
+            <a href="/projects" class="cta-button">Explore My Projects</a>
+        </div>
+    </section>
+{% endblock %}

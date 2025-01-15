@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-container">
+            <!-- Project 1 -->
+            <div class="project">
+                <img src="{{ url_for('static', filename='images/project1.jpg') }}" alt="Toronto Crime Patterns">
+                <div class="project-info">
+                    <h3>Toronto Crime Patterns</h3>
+                    <p>Explore crime trends in Toronto during the COVID-19 pandemic (2014–2022). This project visualizes shifts in crime patterns, providing insights into how the pandemic impacted the city.</p>
+                    <a href="https://github.com/rasadariranasinghe/project_3" class="cta-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="Titanic Survival Analysis">
+                <div class="project-info">
+                    <h3>Titanic Survival Analysis</h3>
+                    <p>Analyze survival rates of Titanic passengers to uncover the impact of socio-economic factors on survival. This study provides valuable insights into disaster preparedness.</p>
+                    <a href="https://github.com/rasadariranasinghe/titanic_data_tableau/blob/main/Titanic1_dahboard.png" class="cta-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <img src="{{ url_for('static', filename='images/project1.jpg') }}" alt="Forgotten Florida Race">
+                <div class="project-info">
+                    <h3>Forgotten Florida Race Dashboard</h3>
+                    <p>Interactive dashboard analyzing race data from the Forgotten Florida event (50 Miler category). Gain insights into participants’ demographics and performance trends.</p>
+                    <a href="https://github.com/rasadariranasinghe/Forgotten-Florida-Race-Data-Analysis" class="cta-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
