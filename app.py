@@ -4,15 +4,22 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
 # GitHub API URL
-GITHUB_USERNAME = "rasadariranasinghe"  # Replace with your GitHub username
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")  # Use environment variable for GitHub username
 GITHUB_API_URL = f"https://api.github.com/users/{GITHUB_USERNAME}/repos"
 
 # Define the path where your resume PDF is stored
 RESUME_FOLDER = os.path.join(app.root_path, 'static', 'resume')  # Ensure 'resume' folder is under 'static'
+
+# Configure Flask app
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")  # Use environment variable for the secret key
 
 @app.route("/")
 def home():
@@ -27,11 +34,14 @@ def projects():
     try:
         response = requests.get(GITHUB_API_URL)
         repos = response.json()
+
         if response.status_code != 200:
             flash("Error fetching GitHub repositories. Please try again later.", "error")
             return render_template("projects.html", repos=[])
+
         return render_template("projects.html", repos=repos)
-    except Exception as e:
+
+    except requests.exceptions.RequestException as e:
         flash(f"Error fetching projects: {e}", "error")
         return render_template("projects.html", repos=[])
 
@@ -71,8 +81,8 @@ def thank_you():
     return render_template("thank_you.html")
 
 def send_email(name, email, message):
-    sender_email = "rasadariranasinghework@yahoo.com"  # Replace with your email
-    receiver_email = "rasadariranasinghework@yahoo.com"  # Replace with your email (or a different one if needed)
+    sender_email = os.getenv("SENDER_EMAIL")  # Use environment variable for sender email
+    receiver_email = os.getenv("RECEIVER_EMAIL")  # Use environment variable for receiver email
     subject = f"Message from {name} ({email})"
     body = f"Message:\n\n{message}"
     
@@ -84,8 +94,9 @@ def send_email(name, email, message):
     msg.attach(MIMEText(body, "plain"))
     
     try:
+        # Use SMTP_SSL with a secure connection
         with smtplib.SMTP_SSL('smtp.mail.yahoo.com', 465) as server:
-            server.login(sender_email, 'RASADARIwork@96')  # Replace with your email password
+            server.login(sender_email, os.getenv("SENDER_EMAIL_PASSWORD"))  # Use environment variable for password
             server.sendmail(sender_email, receiver_email, msg.as_string())
             print("Email sent successfully!")
     except Exception as e:
