@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
+{% block title %}Contact{% endblock %}
+
 {% block content %}
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form action="#" method="POST">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit" class="cta-button">Send Message</button>
-        </form>
-    </section>
+<section id="contact">
+    <div class="contact-container">
+        <h1>Contact Me</h1>
+        <p>Email: <a href="mailto:rasadariravihari@gmail.com">rasadariravihari@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/rasadariranasinghe?tab=repositories" target="_blank">GitHub Profile</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rasadari-ranasinghe-815486254/" target="_blank">LinkedIn Profile</a></p>
+    </div>
+</section>
 {% endblock %}

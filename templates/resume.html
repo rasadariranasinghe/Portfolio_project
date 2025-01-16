@@ -2,8 +2,10 @@
 
 {% block content %}
     <section id="resume">
-        <h2>Resume</h2>
-        <p>You can download my resume below:</p>
-        <a href="{{ url_for('static', filename='resume/Rasadari_Ranasinghe_Resume.pdf') }}" target="_blank" class="cta-button">Download Resume</a>
+        <div class="resume-container">
+            <h2 class="section-title resume-title">Resume</h2>
+            <p>You can download my resume below:</p>
+            <a href="{{ url_for('static', filename='resume/Rasadari_Ranasinghe_Resume.pdf') }}" target="_blank" class="cta-button">Download Resume</a>
+        </div>
     </section>
 {% endblock %}

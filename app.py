@@ -49,24 +49,12 @@ def projects():
 def resume():
     return render_template("resume.html")
 
-@app.route("/contact", methods=["GET", "POST"])
+@app.route("/contact", methods=["GET"])
 def contact():
-    if request.method == "POST":
-        # Extract form data
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-        
-        # Send email
-        try:
-            send_email(name, email, message)
-            flash("Your message has been sent successfully!", "success")
-            return redirect(url_for('thank_you'))
-        except Exception as e:
-            flash(f"Error sending your message: {e}", 'error')
-            return redirect(url_for('contact'))
-
-    return render_template("contact.html")
+    # Render the contact page with email and GitHub links
+    email = "your_email@example.com"
+    github = "https://github.com/your_username"
+    return render_template("contact.html", email=email, github=github)
 
 @app.route("/download_resume")
 def download_resume():
@@ -80,27 +68,6 @@ def download_resume():
 def thank_you():
     return render_template("thank_you.html")
 
-def send_email(name, email, message):
-    sender_email = os.getenv("SENDER_EMAIL")  # Use environment variable for sender email
-    receiver_email = os.getenv("RECEIVER_EMAIL")  # Use environment variable for receiver email
-    subject = f"Message from {name} ({email})"
-    body = f"Message:\n\n{message}"
-    
-    # Create the email message
-    msg = MIMEMultipart()
-    msg['From'] = sender_email
-    msg['To'] = receiver_email
-    msg['Subject'] = subject
-    msg.attach(MIMEText(body, "plain"))
-    
-    try:
-        # Use SMTP_SSL with a secure connection
-        with smtplib.SMTP_SSL('smtp.mail.yahoo.com', 465) as server:
-            server.login(sender_email, os.getenv("SENDER_EMAIL_PASSWORD"))  # Use environment variable for password
-            server.sendmail(sender_email, receiver_email, msg.as_string())
-            print("Email sent successfully!")
-    except Exception as e:
-        raise Exception(f"Error sending email: {e}")
 
 if __name__ == "__main__":
     # Ensure that the app starts correctly

@@ -4,7 +4,7 @@
     <section id="projects">
         <h2 class="section-title">My Projects</h2>
         <div class="project-container">
-            <!-- Project 1: Toronto Crime Patterns -->
+            <!-- Project 1 -->
             <div class="project">
                 <img src="{{ url_for('static', filename='images/project1.jpg') }}" alt="Toronto Crime Patterns">
                 <div class="project-info">
@@ -16,29 +16,45 @@
                 </div>
             </div>
 
-            <!-- Project 2: Titanic Survival Analysis -->
+            <!-- Project 2 -->
             <div class="project">
                 <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="Titanic Survival Analysis">
                 <div class="project-info">
                     <h3>Titanic Survival Analysis</h3>
-                    <p>Analyze survival rates of Titanic passengers to uncover the impact of socio-economic factors on survival. This study provides valuable insights into disaster preparedness and response.</p>
+                    <p>Analyze survival rates of Titanic passengers to uncover the impact of socio-economic factors on survival. This study provides valuable insights into disaster preparedness.</p>
                     <a href="https://github.com/rasadariranasinghe/titanic_data_tableau/blob/main/Titanic1_dahboard.png" class="cta-button" target="_blank">
                         <i class="fas fa-external-link-alt"></i> View Project
                     </a>
                 </div>
             </div>
 
-            <!-- Project 3: Forgotten Florida Race Dashboard -->
+            <!-- Project 3 -->
             <div class="project">
                 <img src="{{ url_for('static', filename='images/project3.jpg') }}" alt="Forgotten Florida Race">
                 <div class="project-info">
-                    <h3>Forgotten Florida Race Dashboard</h3>
-                    <p>Interactive dashboard analyzing race data from the Forgotten Florida event (50 Miler category). Gain insights into participants' demographics and performance trends over time.</p>
+                    <h3>Florida Race Dashboard</h3>
+                    <p>Interactive dashboard analyzing race data from the Forgotten Florida event (50 Miler category). Gain insights into participants’ demographics and performance trends.</p>
                     <a href="https://github.com/rasadariranasinghe/Forgotten-Florida-Race-Data-Analysis" class="cta-button" target="_blank">
                         <i class="fas fa-external-link-alt"></i> View Project
                     </a>
                 </div>
             </div>
+
+            <!-- Project 4 -->
+            <div class="project">
+                <img src="{{ url_for('static', filename='images/project4.jpg') }}" alt="New Project">
+                <div class="project-info">
+                    <h3>Weather Prediction Model</h3>
+                    <p>The goal of this project is to predict maximum daily temperature (Temp_Max) based on 
+                        various weather-related features, including precipitation, snowfall, and elevation. 
+                        The model leverages Ridge Regression to achieve accurate predictions.</p>
+                    <a href="https://github.com/rasadariranasinghe/Weather_prediction" class="cta-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
+            </div>
         </div>
+
+        
     </section>
 {% endblock %}

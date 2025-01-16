@@ -1,33 +1,94 @@
-/* General Section Styling */
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #4CAF50, #009688);
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 80px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 10px 10px;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #ffd700;
+}
+
+/* Contact Page Navigation Bar */
+#contact .navbar {
+    width: 100%; /* Ensures full width for contact page */
+    padding: 10px 20px;
+}
+
+/* Section Styling */
 #home, #projects, #about, #resume, #contact {
     padding: 50px 0;
     text-align: center;
 }
 
-/* Title Styling (Default Black for All Titles) */
+/* Section Titles */
 .section-title {
     font-size: 2.5rem;
-    color: #333; /* Default black color for other titles */
+    color: #333;
     font-weight: bold;
     margin-bottom: 20px;
     text-transform: capitalize;
 }
 
-/* Green Color for Specific Section Titles */
+/* Specific Section Title Colors */
 #about .section-title, 
 #projects .section-title, 
 #resume .section-title, 
 #contact .section-title {
-    color: #4CAF50; /* Green color for specific sections */
+    color: #4CAF50;
 }
 
 /* Home Section */
 .profile-photo {
-    width: 200px; 
-    height: 320px; /* Adjusted for circular image */
+    width: 200px;
+    height: 320px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 20px;
+    margin: 20px auto;
     display: block;
 }
 
@@ -49,39 +110,33 @@ p {
 .cta-button {
     padding: 12px 20px;
     background-color: #007bff;
-    color: white;
+    color: #fff;
     border-radius: 5px;
     text-decoration: none;
     font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-/* General Section Styling */
+/* Projects Section */
 #projects {
-    padding: 60px 20px;
+    padding: 50px 20px;
     background-color: #f8f9fa;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    color: #343a40;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-/* Project Cards Grid */
 .project-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-/* Individual Project Card */
 .project {
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -95,64 +150,28 @@ p {
 
 .project img {
     width: 100%;
-    height: 300px;
+    height: 50%;
     object-fit: cover;
+    border-radius: 8px;
 }
 
-/* Project Info */
 .project-info {
     padding: 20px;
     text-align: left;
 }
 
 .project-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #007bff;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .project-info p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #6c757d;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
-
-/* Call-to-Action Button */
-.cta-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #ffffff;
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .project-info h3 {
-        font-size: 1.2rem;
-    }
-
-    .project-info p {
-        font-size: 0.9rem;
-    }
-}
-
-
-
 
 /* About Section */
 .about-section {
@@ -165,7 +184,7 @@ p {
 
 .about-container {
     max-width: 800px;
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -175,7 +194,7 @@ p {
     font-size: 1.1rem;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -187,14 +206,8 @@ p {
     font-weight: bold;
 }
 
-.education, .experience {
-    font-size: 1.1rem;
-    color: #444;
-    margin-bottom: 10px;
-}
-
 .skills-list {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
@@ -213,38 +226,104 @@ p {
     transform: scale(1.05);
 }
 
-/* Contact Section */
-form {
-    display: grid;
-    gap: 20px;
+/* Resume Section */
+#resume {
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+
+.resume-container {
     max-width: 800px;
     margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-input, textarea {
+.resume-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+#contact h1 {
+    margin-bottom: 1.5rem;
+    color: #4CAF50;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#contact p {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+#contact a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#contact a:hover {
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    z-index: 1000;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    font-weight: bold;
 }
 
-button {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Mobile Responsiveness */
+/* Responsive Design */
 @media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
     .profile-photo {
         width: 100px;
         height: 100px;
@@ -258,61 +337,15 @@ button:hover {
         font-size: 1rem;
     }
 
-    .project {
-        width: 100%;
+    .contact-container {
+        padding: 20px;
     }
-}
-/* General Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
 
-/* Sticky Navbar */
-.navbar {
-    position: fixed; /* Keeps navbar visible on scroll */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333; /* Dark background color */
-    color: white;
-    z-index: 1000; /* Ensures navbar is on top */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for better visibility */
-    padding: 10px 20px;
-}
+    #contact h1 {
+        font-size: 22px;
+    }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between; /* Aligns links evenly */
-    max-width: 1200px; /* Optional: Limit navbar width */
-    margin: 0 auto; /* Centers the navbar */
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px; /* Adds spacing between links */
-    font-weight: bold;
-    transition: color 0.3s ease; /* Smooth color change on hover */
-}
-
-.navbar a:hover {
-    color: #007bff; /* Highlight link color */
-}
-
-/* Space below Navbar */
-body {
-    padding-top: 60px; /* Adjust padding to match navbar height */
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    footer {
+        font-size: 0.8rem;
+    }
 }
